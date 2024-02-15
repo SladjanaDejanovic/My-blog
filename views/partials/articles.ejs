@@ -1,0 +1,18 @@
+<%- include("header.ejs") %>
+<body>
+  <ul>
+    <% articles.forEach(article => {%>
+      <li><h2>
+        <%= article.title %>
+      </h2>
+      <p>
+        <%= article.body %>
+      </p>
+    </li>
+    <hr/>
+      <% }) %>
+     
+  </ul>
+</body>
+
+<%- include("footer.ejs") %>
