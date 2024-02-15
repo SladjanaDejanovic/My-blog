@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+
+<div class="header">
+  <h2>Blog Name</h2>
+</div>
+
+
+
+<form action="/create" method="POST">
+  <input type="text" id="postText" placeholder="Start writing...">
+  <input type="submit" value="Create post" />
+</form>
+
+<button action="/testbutton" method="GET" type="button">
+  <a href="/testbutton">Create new post</a>
+</button>
+
+<%- include("partials/footer.ejs") %>
