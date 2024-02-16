@@ -8,7 +8,16 @@ const app = express()
 const port = 3000;
 
 app.use(express.static("public"));
-app.set("view engine", "ejs") // setting ejs as express app view engine ..
+app.set("view engine", "ejs") // setting ejs as express app view engine ...
+app.use(bodyParser.urlencoded({ extended: true })); //change this, body parser isnt working anymore
+
+let postTitle = "";
+let postText = "";
+
+/** FOR CREATING POST, PASSING VALUES OF INPUT HERE
+ postTitle = req.body["title"]
+ postText = req.body["content"]
+ */
 
 const user = {
   firstName: 'Sladjana',
@@ -23,12 +32,6 @@ const posts = [
   {title: 'Title 4', body: 'Body 4' },
 ]
 
-app.use(bodyParser.urlencoded({ extended: true })); //change this, body parser isnt workign anymore
-
-app.listen(port, ()=>{
-  console.log(`Server running on port ${port}`);
-})
-
 app.get("/", (req, res)=>{
   res.render("index", {user}) //.. so here we dont need to provide extention for index.ejs, bc app already knows what to look for
 })
@@ -39,4 +42,8 @@ app.get("/create", (req, res)=>{
 
 app.get("/articles", (req,res)=>{
   res.render("partials/articles", {articles:posts})
+})
+
+app.listen(port, ()=>{
+  console.log(`Server running on port ${port}`);
 })
