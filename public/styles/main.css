@@ -15,6 +15,11 @@ body {
   text-align: center;
   background: white;
 }
+
+.blog-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+  font-size: 2.25rem;
+}
 /* 
 Create two unequal columns that floats next to each other
 Left column 

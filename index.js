@@ -25,23 +25,42 @@ const user = {
   admin: true
 }
 
-const posts = [
-  {title: 'Title 1', body: 'Body 1' },
-  {title: 'Title 2', body: 'Body 2' },
-  {title: 'Title 3', body: 'Body 3' },
-  {title: 'Title 4', body: 'Body 4' },
+let posts = [
+  {title: 'Title 1', content: 'Body 1' },
+  {title: 'Title 2', content: 'Body 2' },
+  {title: 'Title 3', content: 'Body 3' },
+  {title: 'Title 4', content: 'Body 4' },
 ]
 
-app.get("/", (req, res)=>{
-  res.render("index", {user}) //.. so here we dont need to provide extention for index.ejs, bc app already knows what to look for
+app.get("/", (req, res)=>{//.. so here we dont need to provide extention for index.ejs, bc app already knows what to look for
+  res.render("pages/index", {user,
+  title: "Home page"}) 
 })
 
 app.get("/create", (req, res)=>{
-  res.render("partials/create")
+  res.render("pages/create", {title: "Create post"})
+})
+
+app.post("/create", (req, res)=>{
+  const { postTitle, content } = req.body;
+
+  const newPost = {
+    title: postTitle,
+    content: content
+  }
+
+  posts.push(newPost)
+
+  console.log('New Blog Post:');
+  console.log('Title:', postTitle);
+  console.log('Content:', content);
+  // Redirect the user back to the compose page after submitting the form
+  res.redirect('/articles');
 })
 
 app.get("/articles", (req,res)=>{
-  res.render("partials/articles", {articles:posts})
+  res.render("pages/articles", {articles:posts,
+    title: "Articles"})
 })
 
 app.listen(port, ()=>{

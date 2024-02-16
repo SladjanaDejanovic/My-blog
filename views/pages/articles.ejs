@@ -1,4 +1,4 @@
-<%- include("header.ejs") %>
+<%- include("../partials/header.ejs") %>
 <body>
   <ul>
     <% articles.forEach(article => {%>
@@ -6,7 +6,7 @@
         <%= article.title %>
       </h2>
       <p>
-        <%= article.body %>
+        <%= article.content %>
       </p>
     </li>
     <hr/>
@@ -15,4 +15,4 @@
   </ul>
 </body>
 
-<%- include("footer.ejs") %>
+<%- include("../partials/footer.ejs") %>
