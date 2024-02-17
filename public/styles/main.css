@@ -11,7 +11,7 @@ body {
 /* Header/Blog Title */
 .header {
   padding: 30px;
-  font-size: 40px;
+  font-size: 1.8rem;
   text-align: center;
   background: white;
 }
@@ -20,41 +20,21 @@ body {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
   font-size: 2.25rem;
 }
-/* 
-Create two unequal columns that floats next to each other
-Left column 
-.leftcolumn {
-  float: left;
-  width: 75%;
-}*/
 
-/* Right column 
-.rightcolumn {
-  float: left;
-  width: 25%;
-  padding-left: 20px;
-}*/
+.titles{
+  font-family: SFMono-Regular;
+}
 
-/* Fake image 
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}*/
-
-/* Add a card effect for articles 
-.card {
-  background-color: white;
-  padding: 20px;
-  margin-top: 20px;
-}*/
-
-/* Clear floats after the columns 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}*/
+.about-title{
+  font-weight: 300;
+  font-style: italic;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.about-text{
+  padding-left: 5;
+}
 
 /* Footer */
 .footer {

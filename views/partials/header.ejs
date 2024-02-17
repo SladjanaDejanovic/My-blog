@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <div class="container">
     <header class="border-bottom lh-1 py-3">
       <div class="row flex-nowrap justify-content-between align-items-center">
         <div class="col-4 pt-1">
@@ -23,17 +24,50 @@
           <a class="link-secondary" href="#" aria-label="Search">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
           </a>
-          <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal">
+            Login
+          </button>
         </div>
       </div>
     </header>
     <nav class="nav nav-underline justify-content-between">
-      <a class="nav-item nav-link link-body-emphasis active" href="#">Home</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">About</a>
+      <a class="nav-item nav-link link-body-emphasis active" href="/">Home</a>
+      <a class="nav-item nav-link link-body-emphasis" href="/about">About</a>
       <a class="nav-item nav-link link-body-emphasis" href="/articles">Articles</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Contact</a>
+      <a class="nav-item nav-link link-body-emphasis" href="/contact">Contact</a>
       <% if(user.admin) {%>
         <a class="nav-item nav-link link-body-emphasis" href="/create">Create new post</a>
       <% } %>
-    </nav>
+    </nav></div>
+
+
+<!-- Modal Login-->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="loginModalLabel">Login</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/login" method="post">
+          <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="inputEmail3" name="email">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="inputPassword3" name="password">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Sign in</button>
+         
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
     <main>

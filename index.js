@@ -11,12 +11,11 @@ app.use(express.static("public"));
 app.set("view engine", "ejs") // setting ejs as express app view engine ...
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// let postTitle = "";
-// let postText = "";
-
 const user = {
   firstName: 'Sladjana',
   lastName: 'Dejanovic',
+  email: "sladja@gmail.com",
+  password: "1234",
   admin: true
 }
 
@@ -72,6 +71,18 @@ app.post("/delete", (req, res)=>{
   }
 
   res.redirect('/articles');
+})
+
+app.get("/about", (req,res)=>{
+  res.render("pages/about", {user, title: "About"})
+})
+
+app.post("/login", (req,res)=>{
+  const {email, password}=req.body
+
+  if(email===user.email && password===user.password){
+    res.redirect("/")
+  }
 })
 
 app.listen(port, ()=>{
