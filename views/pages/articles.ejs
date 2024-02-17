@@ -1,14 +1,18 @@
 <%- include("../partials/header.ejs") %>
 <body>
   <ul>
-    <% articles.forEach(article => {%>
-      <li><h2>
-        <%= article.title %>
+    <% posts.forEach(post => {%>
+      <div><h2>
+        <%= post.title %>
       </h2>
       <p>
-        <%= article.content %>
+        <%= post.content %>
       </p>
-    </li>
+      <form action="/delete" method="post">
+        <input type="hidden" name="postId" value="<%= post.id %>">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
     <hr/>
       <% }) %>
      
