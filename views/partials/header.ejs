@@ -35,7 +35,7 @@
       <a class="nav-item nav-link link-body-emphasis" href="/about">About</a>
       <a class="nav-item nav-link link-body-emphasis" href="/articles">Articles</a>
       <a class="nav-item nav-link link-body-emphasis" href="/contact">Contact</a>
-      <% if(user.admin) {%>
+      <%if(locals.user.admin) {%>
         <a class="nav-item nav-link link-body-emphasis" href="/create">Create new post</a>
       <% } %>
     </nav></div>

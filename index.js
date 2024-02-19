@@ -1,5 +1,5 @@
 import express from "express"
-import bodyParser from "body-parser"; // change?
+import bodyParser from "body-parser";
 import session from "express-session"
 
 
@@ -7,7 +7,7 @@ const app = express()
 const port = 3000;
 
 app.use(express.static("public"));
-app.set("view engine", "ejs") // setting ejs as express app view engine ...
+app.set("view engine", "ejs") 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
   secret: 'secret-key',
@@ -20,26 +20,26 @@ const users = [
      firstName: 'Sladjana',
   lastName: 'Dejanovic',
   email: "sladja@gmail.com",
-  password: "1234",
+  password: "1111",
   admin: true
 },
   {
     firstName: 'Yuri',
   lastName: 'Cruz Franca',
   email: "yuri@gmail.com",
-  password: "1234",
+  password: "2222",
   admin: true
 },
   {
     firstName: 'Azrael',
   lastName: 'Dejanovic',
   email: "azibazi@gmail.com",
-  password: "1234",
+  password: "3333",
   admin: false
 }
 ]
 
-// let user;
+let user;
 // let loggedIn = false;
 
 
@@ -54,23 +54,23 @@ let posts = [
 
 
 app.get("/", (req, res)=>{
-  const user = req.session.user
-  if (user) {
-    res.render("pages/index", {user,
+ 
+    res.render("pages/index", {
   title: "Home page"}) 
-   
+  
   } 
 
-  
-})
+)
 
 app.post("/login", (req,res)=>{
   const {email, password}=req.body
-const user = users.find(user => user.email===email && user.password===password)
-
+  console.log(password);
+user = users.find(user => user.email===email && user.password===password)
+console.log(user);
 if(user){
    // Store user information in session
    req.session.user = user;
+   res.redirect("/")
 }else{
   res.status(401).send("Invalid email or password");
 }
