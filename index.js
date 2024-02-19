@@ -46,18 +46,16 @@ let user;
 let postIdCounter = 4;
 
 let posts = [
-  {title: 'Title 1', content: 'Body 1' },
-  {title: 'Title 2', content: 'Body 2' },
-  {title: 'Title 3', content: 'Body 3' },
-  {title: 'Title 4', content: 'Body 4' },
+  {id: 1, title: 'Title 1', content: 'Body 1' },
+  {id: 2, title: 'Title 2', content: 'Body 2' },
+  {id: 3, title: 'Title 3', content: 'Body 3' },
+  {id: 4, title: 'Title 4', content: 'Body 4' },
 ]
 
 
 app.get("/", (req, res)=>{
- 
-    res.render("pages/index", {
+    res.render("pages/index", {user,
   title: "Home page"}) 
-  
   } 
 
 )

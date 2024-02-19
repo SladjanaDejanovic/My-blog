@@ -1,9 +1,9 @@
 <%- include("../partials/header.ejs") %>
 <div class="container">
 <div class="header">
-  <% if(locals.user){ %>
+  <% if(user){ %>
   <p>Welcome back,
-    <%= locals.user.firstName  %> <%= locals.user.lastName %>
+    <%= user.firstName  %> <%= user.lastName %>
   </p>
   <% } %>
 </div>
