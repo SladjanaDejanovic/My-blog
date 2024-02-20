@@ -27,6 +27,11 @@
           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal">
             Login
           </button>
+          <% if(locals.user) {%>
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#logoutModal">
+            Log out
+          </button>
+          <% } %>
         </div>
       </div>
     </header>
@@ -68,6 +73,27 @@
         </form>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Modal log out -->
+<div class="modal" tabindex="-1" id="logoutModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Log out</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="/logout" method="post">
+      <div class="modal-body">
+        
+        <p>Are you sure you want to log out?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="submit" class="btn btn-primary">Yes</button>
+      </div>
+    </div></form>
   </div>
 </div>
     <main>

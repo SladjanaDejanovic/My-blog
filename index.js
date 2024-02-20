@@ -2,7 +2,6 @@ import express from "express"
 import bodyParser from "body-parser";
 import session from "express-session"
 
-
 const app = express()
 const port = 3000;
 
@@ -40,8 +39,6 @@ const users = [
 ]
 
 let user;
-// let loggedIn = false;
-
 
 let postIdCounter = 4;
 
@@ -52,27 +49,27 @@ let posts = [
   {id: 4, title: 'Title 4', content: 'Body 4' },
 ]
 
-
 app.get("/", (req, res)=>{
     res.render("pages/index", {user,
   title: "Home page"}) 
   } 
-
 )
 
 app.post("/login", (req,res)=>{
   const {email, password}=req.body
-  console.log(password);
+  
 user = users.find(user => user.email===email && user.password===password)
-console.log(user);
+
 if(user){
    // Store user information in session
    req.session.user = user;
    res.redirect("/")
+   console.log(user);
 }else{
   res.status(401).send("Invalid email or password");
 }
 })
+
 
 // Render navbar with "create post" button based on user's admin status
 app.use((req, res, next)=>{
@@ -80,13 +77,26 @@ app.use((req, res, next)=>{
   next()
 })
 
-app.get("/create", (req, res)=>{
-  res.render("pages/create", {user,title: "Create post"})
+app.post("/logout", (req, res)=>{
+// Destroy the user session
+req.session.destroy((err)=>{
+  if(err){
+    console.log("Error destroying session:", err);
+   
+    return res.status(500).send("Internal Server Error")
+  }
+  res.redirect("/");
+  console.log(user);
+})
 })
 
 app.get("/articles", (req,res)=>{
   res.render("pages/articles", {user, posts:posts,
     title: "Articles"})
+})
+
+app.get("/create", (req, res)=>{
+  res.render("pages/create", {user,title: "Create post"})
 })
 
 app.post("/create", (req, res)=>{
@@ -123,6 +133,9 @@ app.get("/about", (req,res)=>{
   res.render("pages/about", {user, title: "About"})
 })
 
+app.get("/contact", (req,res)=>{
+  res.render("pages/contact", {user, title: "About"})
+})
 
 app.listen(port, ()=>{
   console.log(`Server running on port ${port}`);
