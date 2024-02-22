@@ -34,10 +34,21 @@ body {
   font-size: 1rem;
 }
 
-.about-text{
-  padding-left: 5;
+
+.post-form{
+  width: 500px;
 }
 
+
+
+.post-title, .content, #postBtn{
+  margin: 15px;
+ 
+}
+
+#postTitle, #content{
+  width: 100%;
+}
 /* Footer */
 .footer {
   padding: 20px;

@@ -2,16 +2,16 @@
 <div class="container d-flex flex-column align-items-center">
 <h1 class="page-titles">Create new post</h1>
 
-    <form action="/create" method="post">
-      <div>
+    <form action="/create" method="post" class="post-form">
+      <div class="post-title">
           <label for="postTitle">Title:</label>
           <input type="text" id="postTitle" name="postTitle" required>
       </div>
-      <div>
+      <div class="content">
           <label for="content">Content:</label>
           <textarea id="content" name="content" rows="10" required></textarea>
       </div>
-      <button type="submit">Post</button>
+      <button type="submit" id="postBtn">Post</button>
   </form>
 </div>
   <%- include("../partials/footer.ejs") %>
