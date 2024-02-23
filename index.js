@@ -42,8 +42,13 @@ let user;
 
 let postIdCounter = 4;
 
+const article1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+const article2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus mauris ultrices eros in cursus turpis massa tincidunt dui. Nunc sed velit dignissim sodales. At consectetur lorem donec massa sapien. Tellus in hac habitasse platea dictumst vestibulum. Ultrices vitae auctor eu augue ut lectus. Porta lorem mollis aliquam ut porttitor leo a diam. Morbi enim nunc faucibus a"
+const article3 = "Euismod quis viverra nibh cras pulvinar mattis nunc sed. Mattis rhoncus urna neque viverra justo. Orci eu lobortis elementum nibh tellus molestie. Montes nascetur ridiculus mus mauris vitae ultricies."
+const article4 = "Senectus et netus et malesuada. Tincidunt arcu non sodales neque. Sagittis orci a scelerisque purus semper eget."
+
 let posts = [
-  {id: 1, title: 'Title 1', content: 'Body 1' },
+  {id: 1, title: 'Title 1', content: article1},
   {id: 2, title: 'Title 2', content: 'Body 2' },
   {id: 3, title: 'Title 3', content: 'Body 3' },
   {id: 4, title: 'Title 4', content: 'Body 4' },
@@ -91,8 +96,13 @@ req.session.destroy((err)=>{
 })
 
 app.get("/articles", (req,res)=>{
+  const maxLength = 50;
+  posts.forEach(post => {
+    post.showReadMore = (post.content.length > maxLength || post.content.length > 100);
+  });
+ 
   res.render("pages/articles", {user, posts:posts,
-    title: "Articles"})
+    title: "Articles", })
 })
 
 app.get("/create", (req, res)=>{

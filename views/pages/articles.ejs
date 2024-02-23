@@ -1,14 +1,20 @@
 <%- include("../partials/header.ejs") %>
 <body>
   <h1 class="page-titles ">Articles</h1>
-  <ul>
+  <ul class="articles-container">
     <% posts.forEach(post => {%>
-      <div><h2>
+      <div class="article">
+        <h2>
         <%= post.title %>
       </h2>
       <p>
         <%= post.content %>
       </p>
+     
+      <% if (post.showReadMore) { %>
+        <a href="#" class="read-more">Read more...</a>
+    <% } %>
+   
       <form action="/delete" method="post">
         <input type="hidden" name="postId" value="<%= post.id %>">
         <button type="submit">Delete</button>
