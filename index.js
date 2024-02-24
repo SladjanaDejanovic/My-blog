@@ -60,6 +60,7 @@ app.get("/", (req, res)=>{
   } 
 )
 
+/// Log in
 app.post("/login", (req,res)=>{
   const {email, password}=req.body
   
@@ -75,19 +76,18 @@ if(user){
 }
 })
 
-
-// Render navbar with "create post" button based on user's admin status
+/// Render navbar with "create post" button based on user's admin status
 app.use((req, res, next)=>{
-  res.locals.user = req.session.user // Make user data available in templates
+  res.locals.user = req.session.user 
   next()
 })
 
+/// Log out
 app.post("/logout", (req, res)=>{
 // Destroy the user session
 req.session.destroy((err)=>{
   if(err){
     console.log("Error destroying session:", err);
-   
     return res.status(500).send("Internal Server Error")
   }
   res.redirect("/");
@@ -95,6 +95,7 @@ req.session.destroy((err)=>{
 })
 })
 
+/// Show page with all articles
 app.get("/articles", (req,res)=>{
   const maxLength = 50;
   posts.forEach(post => {
@@ -105,10 +106,12 @@ app.get("/articles", (req,res)=>{
     title: "Articles", })
 })
 
+/// Show page to create a post if you are admin
 app.get("/create", (req, res)=>{
   res.render("pages/create", {user,title: "Create post"})
 })
 
+/// Making new post
 app.post("/create", (req, res)=>{
   const { postTitle, content } = req.body;
 
@@ -128,6 +131,7 @@ app.post("/create", (req, res)=>{
   res.redirect('/articles');
 })
 
+/// Delete a post
 app.post("/delete", (req, res)=>{
   const postId = req.body.postId
   const index = posts.findIndex(post=>post.id===parseInt(postId))
@@ -139,10 +143,12 @@ app.post("/delete", (req, res)=>{
   res.redirect('/articles');
 })
 
+/// Show About page
 app.get("/about", (req,res)=>{
   res.render("pages/about", {user, title: "About"})
 })
 
+/// Show contact page
 app.get("/contact", (req,res)=>{
   res.render("pages/contact", {user, title: "About"})
 })
