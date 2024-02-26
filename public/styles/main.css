@@ -34,12 +34,10 @@ body {
   font-size: 1rem;
 }
 
-
+/*Create new post */
 .post-form{
   width: 500px;
 }
-
-
 
 .post-title, .content, #postBtn{
   margin: 15px;
@@ -50,6 +48,7 @@ body {
   width: 100%;
 }
 
+/* Articles page*/
 .articles-container{
   width: 80%;
   margin: auto;
