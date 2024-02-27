@@ -150,7 +150,7 @@ app.get("/about", (req,res)=>{
 
 /// Show contact page
 app.get("/contact", (req,res)=>{
-  res.render("pages/contact", {user, title: "About"})
+  res.render("pages/contact", {user, title: "Contact"})
 })
 
 app.listen(port, ()=>{
