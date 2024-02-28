@@ -67,6 +67,11 @@ body {
  
 }
 
+.contact-icons{
+  height: 20px;
+  padding-right: 10px;
+}
+
 /* Footer */
 .footer {
   padding: 20px;
