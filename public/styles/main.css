@@ -66,6 +66,12 @@ body {
   padding: 5px;
  
 }
+.contact-wrapper{
+  /* display: flex;
+  justify-content: center;
+width: fit-content; */
+margin: auto;
+}
 
 .contact-icons{
   height: 20px;
