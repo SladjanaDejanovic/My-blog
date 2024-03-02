@@ -35,10 +35,10 @@
       </div>
     </header>
     <nav class="nav nav-underline justify-content-around">
-      <a class="nav-item nav-link link-body-emphasis active" href="/">Home</a>
-      <a class="nav-item nav-link link-body-emphasis" href="/about">About</a>
-      <a class="nav-item nav-link link-body-emphasis" href="/articles">Articles</a>
-      <a class="nav-item nav-link link-body-emphasis" href="/contact">Contact</a>
+      <a class="nav-item nav-link link-body-emphasis <%= title === 'Home' ? 'active' : '' %>" href="/">Home</a>
+      <a class="nav-item nav-link link-body-emphasis <%= title === 'About' ? 'active' : '' %>" href="/about">About</a>
+      <a class="nav-item nav-link link-body-emphasis <%= title === 'Articles' ? 'active' : '' %>" href="/articles">Articles</a>
+      <a class="nav-item nav-link link-body-emphasis <%= title === 'Contact' ? 'active' : '' %>" href="/contact">Contact</a>
       <%if(locals.user && locals.user.admin) {%>
         <a class="nav-item nav-link link-body-emphasis" href="/create">Create new post</a>
       <% } %>
