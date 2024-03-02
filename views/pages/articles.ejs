@@ -1,7 +1,8 @@
 <%- include("../partials/header.ejs") %>
 <body>
+  <div class="container">
   <h1 class="page-titles ">Articles</h1>
-  <ul class="articles-container">
+  <ul class="articles">
     <% posts.forEach(post => {%>
       <div class="article">
         <h2>
@@ -24,6 +25,7 @@
       <% }) %>
      
   </ul>
+</div>
 </body>
 
 <%- include("../partials/footer.ejs") %>
