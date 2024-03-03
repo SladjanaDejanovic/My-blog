@@ -55,9 +55,9 @@ const article4 = "Senectus et netus et malesuada. Tincidunt arcu non sodales neq
 
 let posts = [
   {id: 1, title: 'Title 1', content: article1},
-  {id: 2, title: 'Title 2', content: 'Body 2' },
-  {id: 3, title: 'Title 3', content: 'Body 3' },
-  {id: 4, title: 'Title 4', content: 'Body 4' },
+  {id: 2, title: 'Title 2', content: article2 },
+  {id: 3, title: 'Title 3', content: article3 },
+  {id: 4, title: 'Title 4', content: article4 },
 ]
 
 app.get("/", (req, res)=>{
