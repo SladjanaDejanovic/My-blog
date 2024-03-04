@@ -30,7 +30,7 @@ const users = [
 },
   {
     firstName: 'Yuri',
-  lastName: 'Cruz Franca',
+  lastName: 'Cruz França',
   email: "yuri@gmail.com",
   password: "2222",
   admin: true
