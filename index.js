@@ -1,19 +1,14 @@
 import express from "express"
 import bodyParser from "body-parser";
 import session from "express-session"
-// import favicon from "express-favicon"
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-
-// const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express()
 const port = 3000;
 
 app.use(express.static("public"));
 app.set("view engine", "ejs") 
-// app.use(favicon((__dirname + '/public/icons')))
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(session({
   secret: 'secret-key',
   resave: false,
