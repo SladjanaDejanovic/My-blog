@@ -84,10 +84,10 @@ app.use((req, res, next)=>{
 })
 
 /// Log out
-app.post("/logout", (req, res)=>{
+app.post("/logout", (req, res) => {
 // Destroy the user session
-req.session.destroy((err)=>{
-  if(err){
+req.session.destroy((err) => {
+  if(err) {
     console.log("Error destroying session:", err);
     return res.status(500).send("Internal Server Error")
   }
