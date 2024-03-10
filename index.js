@@ -17,21 +17,21 @@ app.use(session({
 
 const users = [
   {
-     firstName: 'Sladjana',
+  firstName: 'Sladjana',
   lastName: 'Dejanovic',
   email: "sladja@gmail.com",
   password: "1111",
   admin: true
 },
   {
-    firstName: 'Yuri',
+  firstName: 'Yuri',
   lastName: 'Cruz França',
   email: "yuri@gmail.com",
   password: "2222",
   admin: true
 },
   {
-    firstName: 'Azrael',
+  firstName: 'Azrael',
   lastName: 'Dejanovic',
   email: "azibazi@gmail.com",
   password: "3333",
@@ -55,7 +55,7 @@ let posts = [
   {id: 4, title: 'Title 4', content: article4 },
 ]
 
-app.get("/", (req, res)=>{
+app.get("/", (req, res) => {
     res.render("pages/index", {user,
   title: "Home page"}) 
   } 
@@ -84,10 +84,10 @@ app.use((req, res, next)=>{
 })
 
 /// Log out
-app.post("/logout", (req, res)=>{
+app.post("/logout", (req, res) => {
 // Destroy the user session
-req.session.destroy((err)=>{
-  if(err){
+req.session.destroy((err) => {
+  if(err) {
     console.log("Error destroying session:", err);
     return res.status(500).send("Internal Server Error")
   }
