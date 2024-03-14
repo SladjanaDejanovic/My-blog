@@ -135,7 +135,7 @@ app.post("/create", (req, res)=>{
 /// Delete a post
 app.post("/delete", (req, res) => {
   const postId = req.body.postId
-  const index = posts.findIndex(post=>post.id===parseInt(postId))
+  const index = posts.findIndex(post => post.id === parseInt(postId))
 
   if(index!==-1){
     posts.splice(index,1)
