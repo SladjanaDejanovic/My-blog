@@ -150,7 +150,7 @@ app.get("/about", (req,res)=>{
 })
 
 /// Show contact page
-app.get("/contact", (req,res)=>{
+app.get("/contact", (req, res) => {
   res.render("pages/contact", {user, title: "Contact"})
 })
 
