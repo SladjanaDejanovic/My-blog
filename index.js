@@ -141,7 +141,7 @@ app.post("/delete", (req, res) => {
     posts.splice(index,1)
   }
 
-  res.redirect('/articles');
+  res.redirect("/articles");
 })
 
 /// Show About page
