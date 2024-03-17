@@ -154,6 +154,6 @@ app.get("/contact", (req, res) => {
   res.render("pages/contact", {user, title: "Contact"})
 })
 
-app.listen(port, ()=>{
+app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 })
