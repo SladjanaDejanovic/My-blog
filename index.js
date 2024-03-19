@@ -56,7 +56,8 @@ let posts = [
 ]
 
 app.get("/", (req, res) => {
-    res.render("pages/index", {user,
+    res.render("pages/index", {
+  user,
   title: "Home page"}) 
   } 
 )
