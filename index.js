@@ -49,10 +49,10 @@ const article3 = "Euismod quis viverra nibh cras pulvinar mattis nunc sed. Matti
 const article4 = "Senectus et netus et malesuada. Tincidunt arcu non sodales neque. Sagittis orci a scelerisque purus semper eget."
 
 let posts = [
-  {id: 1, title: 'Title 1', content: article1},
-  {id: 2, title: 'Title 2', content: article2 },
-  {id: 3, title: 'Title 3', content: article3 },
-  {id: 4, title: 'Title 4', content: article4 },
+  {id: 1, title: 'Title 1', content: article1, author: "Alex Thompson", date: "2023-08-01T10:00:00Z"},
+  {id: 2, title: 'Title 2', content: article2, author: "Alex Thompson", date: "2023-08-01T10:00:00Z" },
+  {id: 3, title: 'Title 3', content: article3, author: "Alex Thompson", date: "2023-08-01T10:00:00Z" },
+  {id: 4, title: 'Title 4', content: article4, author: "Alex Thompson", date: "2023-08-01T10:00:00Z" },
 ]
 
 app.get("/", (req, res) => {
@@ -115,12 +115,14 @@ app.get("/create", (req, res)=>{
 
 /// Making new post
 app.post("/create", (req, res)=>{
-  const { postTitle, content } = req.body;
+  const { postTitle, content, author} = req.body;
 
   const newPost = {
     id: postIdCounter++,
     title: postTitle,
-    content: content
+    content: content,
+    author: author,
+    date: new Date()
   }
 
   posts.push(newPost)
