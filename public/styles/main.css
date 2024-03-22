@@ -39,7 +39,7 @@ body {
   width: 500px;
 }
 
-.post-title, .content, #postBtn{
+.post-title, .content, #postBtn, .author{
   margin: 15px;
 }
 
