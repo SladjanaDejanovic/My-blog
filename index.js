@@ -63,7 +63,7 @@ app.get("/", (req, res) => {
 
 /// Log in
 app.post("/login", (req, res) => {
-  const {email, password}=req.body
+  const {email, password} = req.body
   
 user = users.find(user => user.email===email && user.password===password)
 
